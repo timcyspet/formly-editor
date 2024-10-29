@@ -1,1 +1,30 @@
-<p>formly-date-picker works!</p>
+<mat-form-field>
+    @if (props.label) {
+    <mat-label>{{props.label}}</mat-label>
+    }
+
+    <input matInput [id]="id" [name]="field.name" [formControl]="formControl" [matDatepicker]="picker"
+        [matDatepickerFilter]="props.datepickerOptions.filter" [max]="props.datepickerOptions.max"
+        [min]="props.datepickerOptions.min" [formlyAttributes]="field" [placeholder]="props.placeholder"
+        [tabindex]="props.tabindex" [readonly]="props.readonly" [required]="props.required" 
+        (dateInput)="props.datepickerOptions.dateInput(field, $event)"
+        (dateChange)="props.datepickerOptions.dateChange(field, $event)"/>
+    @if (props.description) {
+    <mat-hint>{{props.description}}</mat-hint>
+    }
+    <mat-datepicker-toggle matIconSuffix (click)="detectChanges()" [disabled]="props.disabled"
+        [for]="picker"></mat-datepicker-toggle>
+    <ng-template #datepickerToggle>
+
+    </ng-template>
+    <mat-datepicker #picker [color]="props.color" [dateClass]="props.datepickerOptions.dateClass"
+        [disabled]="props.datepickerOptions.disabled" [opened]="props.datepickerOptions.opened"
+        [panelClass]="props.datepickerOptions.panelClass" [startAt]="props.datepickerOptions.startAt"
+        [startView]="props.datepickerOptions.startView" [touchUi]="props.datepickerOptions.touchUi"
+        [calendarHeaderComponent]="props.datepickerOptions.calendarHeaderComponent"
+        (monthSelected)="props.datepickerOptions.monthSelected(field, $event, picker)"
+        (yearSelected)="props.datepickerOptions.yearSelected(field, $event, picker)"
+        (opened)="props.datepickerOptions.opened = true" (closed)="props.datepickerOptions.opened = false">
+    </mat-datepicker>
+
+</mat-form-field>

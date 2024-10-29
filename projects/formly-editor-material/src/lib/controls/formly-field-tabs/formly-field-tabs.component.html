@@ -1,1 +1,11 @@
-<p>formly-field-tabs works!</p>
+<mat-tab-group>
+    @for(tab of field.fieldGroup;track tab; let i = $index; let last = $last){
+        <mat-tab        
+        [label]="tab.props.label"        
+      >
+        <formly-field [field]="tab"></formly-field>
+            
+      </mat-tab>
+    }    
+  </mat-tab-group>
+

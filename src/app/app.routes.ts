@@ -5,6 +5,7 @@ import { bootstrapEditorConfig } from './bootstrap/bootstrap.config';
 import { provideBootstrap } from './bootstrap/bootstrap.provider';
 import { materialEditorConfig } from './material/material.config';
 import { provideMaterial } from './material/material.provider';
+import { FormlyEditorMaterialComponent } from 'FormlyEditorMaterial'
 
 export const routes: Routes = [
     {
@@ -16,6 +17,6 @@ export const routes: Routes = [
         path: 'material',
         loadComponent: () => import('./material/material.component').then(m => m.MaterialComponent),
         providers: [provideMaterial(), provideEditorConfig(materialEditorConfig)],
-    },
+    },    
     { path: '**', redirectTo: 'material' },
 ];

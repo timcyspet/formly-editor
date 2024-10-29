@@ -1,0 +1,16 @@
+<mat-stepper [orientation]="props.orientation" [linear]="props.isLinear" [headerPosition]="props.headerPosition" >  
+    @for (step of field.fieldGroup;track step; let index = $index; let last = $last) {
+    <mat-step [optional]="step.props.isOptional">
+        <ng-template matStepLabel>{{ step.props.label }}</ng-template>
+        <formly-field [field]="step"></formly-field>
+        <div>
+            @if(index !== 0){
+            <button matStepperPrevious mat-button type="button">Back</button>
+            }
+            @if(!last){
+            <button matStepperNext mat-button type="button" [disabled]="!isValid(step) && props.isLinear">Next</button>
+            }
+        </div>
+    </mat-step>
+    }
+</mat-stepper>

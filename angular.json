@@ -163,6 +163,39 @@
           }
         }
       }
+    },
+    "FormlyEditorMaterial": {
+      "projectType": "library",
+      "root": "projects/formly-editor-material",
+      "sourceRoot": "projects/formly-editor-material/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/formly-editor-material/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/formly-editor-material/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/formly-editor-material/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/formly-editor-material/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

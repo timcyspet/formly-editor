@@ -20,6 +20,13 @@ export enum PropertyType {
     VALIDATORS = 'Validators',
 }
 
+export enum PropertyGroupType {
+    GENERAL = 'General',
+    API = 'Api',
+    CONTROL = 'Control',
+    CODE= 'Code',    
+}
+
 export enum PropertyChangeType {
     KEY,
     VALUE,
